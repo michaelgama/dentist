@@ -17,7 +17,7 @@ class CreateDentistService {
   ) {}
 
   async execute({ name, specialty_id }: IRequest): Promise<Dentist> {
-    const specialtyDentistExists = await this.dentistRepository.findByspecialty(
+    const specialtyExists = await this.dentistRepository.findBySpecialty(
       specialty_id
     );
 
@@ -25,7 +25,7 @@ class CreateDentistService {
       throw new AppError("required specialty!");
     }
 
-    if (!specialtyDentistExists) {
+    if (!specialtyExists) {
       throw new AppError("specialty does not exist!");
     }
 

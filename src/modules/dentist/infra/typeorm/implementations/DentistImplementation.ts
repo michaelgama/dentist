@@ -27,9 +27,9 @@ class DentistImplementation implements IDentistRepository {
     return dentist;
   }
 
-  async findByspecialty(specialty_id: string): Promise<Dentist> {
-    const specialtyByDentist = await this.repository.findOne({ specialty_id });
-    return specialtyByDentist;
+  async findBySpecialty(specialty_id: string): Promise<Dentist> {
+    const specialty = await this.repository.findOne({ specialty_id });
+    return specialty;
   }
 
   async findByName(name: string): Promise<Dentist> {
@@ -49,6 +49,10 @@ class DentistImplementation implements IDentistRepository {
   async findByDentist(): Promise<Dentist[]> {
     const dentist = await this.repository.find();
     return dentist;
+  }
+
+  async remove(id: Dentist): Promise<void> {
+    await this.repository.remove(id);
   }
 }
 
