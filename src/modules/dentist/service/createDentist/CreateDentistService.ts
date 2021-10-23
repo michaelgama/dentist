@@ -4,8 +4,6 @@ import { inject, injectable } from "tsyringe";
 
 import { AppError } from "@shared/errors/AppError";
 
-// import { ICreateDentistDTO } from "../dtos/ICreateDentistDTO";
-
 interface IRequest {
   name: string;
   specialty_id: string;
@@ -23,12 +21,12 @@ class CreateDentistService {
       specialty_id
     );
 
-    if (!specialtyDentistExists) {
-      throw new AppError("specialty does not exist!");
-    }
-
     if (!specialty_id) {
       throw new AppError("required specialty!");
+    }
+
+    if (!specialtyDentistExists) {
+      throw new AppError("specialty does not exist!");
     }
 
     const dentist = await this.dentistRepository.create({

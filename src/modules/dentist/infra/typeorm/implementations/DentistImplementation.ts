@@ -28,9 +28,7 @@ class DentistImplementation implements IDentistRepository {
   }
 
   async findByspecialty(specialty_id: string): Promise<Dentist> {
-    const specialtyByDentist = await this.repository.findOne({
-      where: { specialty_id },
-    });
+    const specialtyByDentist = await this.repository.findOne({ specialty_id });
     return specialtyByDentist;
   }
 
