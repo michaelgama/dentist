@@ -5,6 +5,7 @@ import {
   JoinColumn,
   ManyToOne,
   PrimaryColumn,
+  UpdateDateColumn,
 } from "typeorm";
 import { v4 as uuidV4 } from "uuid";
 
@@ -27,6 +28,9 @@ class Dentist {
 
   @CreateDateColumn()
   created_at: Date;
+
+  @UpdateDateColumn()
+  updated_at: Date;
 
   constructor() {
     if (!this.id) {

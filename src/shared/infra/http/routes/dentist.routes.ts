@@ -4,6 +4,8 @@ import { ListDentistController } from "@modules/dentist/service/listDentist/List
 import { UpdateDentistController } from "@modules/dentist/service/updateDentist/UpdateDentistController";
 import { Router } from "express";
 
+import { ensureAuthenticaded } from "../middleware/ensureAuthenticated";
+
 const dentistRoutes = Router();
 
 const createDentistController = new CreateDentisController();
@@ -11,12 +13,16 @@ const listDentistController = new ListDentistController();
 const updateDentistController = new UpdateDentistController();
 const deleteDentistController = new DeleteDentistController();
 
-dentistRoutes.post("/", createDentistController.handle);
+dentistRoutes.post("/", ensureAuthenticaded, createDentistController.handle);
 
-dentistRoutes.get("/", listDentistController.handle);
+dentistRoutes.get("/", ensureAuthenticaded, listDentistController.handle);
 
-dentistRoutes.put("/:id", updateDentistController.handle);
+dentistRoutes.put("/:id", ensureAuthenticaded, updateDentistController.handle);
 
-dentistRoutes.delete("/:id", deleteDentistController.handle);
+dentistRoutes.delete(
+  "/:id",
+  ensureAuthenticaded,
+  deleteDentistController.handle
+);
 
 export { dentistRoutes };

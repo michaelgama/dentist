@@ -18,10 +18,15 @@ export class CreateDentist1634752527735 implements MigrationInterface {
           {
             name: "specialty_id",
             type: "uuid",
-            isNullable: true,
+            isNullable: false,
           },
           {
             name: "created_at",
+            type: "timestamp",
+            default: "now()",
+          },
+          {
+            name: "updated_at",
             type: "timestamp",
             default: "now()",
           },
