@@ -1,5 +1,5 @@
 import { ICreateDentistDTO } from "../dtos/ICreateDentistDTO";
-import { Dentist } from "../infra/typeorm/entities/Dentist";
+import { Dentist } from "../entities/Dentist";
 
 interface IDentistRepository {
   create(data: ICreateDentistDTO): Promise<Dentist>;

@@ -1,4 +1,4 @@
-import { UsersImplementation } from "@modules/users/infra/typeorm/implementations/UsersImplementation";
+import { UsersImplementation } from "@modules/users/implementations/UsersImplementation";
 import { Request, Response, NextFunction } from "express";
 import { verify } from "jsonwebtoken";
 

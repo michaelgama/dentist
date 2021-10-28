@@ -1,4 +1,4 @@
-import { Dentist } from "@modules/dentist/infra/typeorm/entities/Dentist";
+import { Dentist } from "@modules/dentist/entities/Dentist";
 import { IDentistRepository } from "@modules/dentist/repositories/IDentistRepository";
 import { inject, injectable } from "tsyringe";
 

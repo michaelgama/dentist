@@ -1,4 +1,4 @@
-import { Specialty } from "../infra/typeorm/entities/Specialty";
+import { Specialty } from "../entities/Specialty";
 
 interface ICreateSpecialtyDTO {
   name: string;
